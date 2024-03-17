@@ -39,11 +39,7 @@
           class="collapse navbar-collapse text-white"
           id="navbarSupportedContent"
         >
-          <ul>
-            <li>
-                <button>dark</button>
-            </li>
-          </ul>
+          
         </div>
       </div>
     </nav>
@@ -129,10 +125,9 @@
         </div>
       </section>
       <div id="device-details-container">Check status <a href= "https://kdss.konnexions.dev/simulation/ufiBTpc" target="_blank" style="color:red">here</a></div>
-      <button id="fetch-device-details-button" onclick="fetchDeviceDetails('ufiBTpc')">
-        Device details:
-
-      </button>
+      <span style="color: green; font-weight: 800 ;">OR</span>
+      <button style="background-color: red; border: 1px solid;" id="fetch-device-details-button" onclick="fetchDeviceDetails('ufiBTpc')">
+        Click to fetch device details </button>
       <div id="device-details">
 
       </div>
@@ -169,7 +164,7 @@
         document.getElementById("fetch-device-details-button").addEventListener("click", function () {
             fetchDeviceDetails('ufiBTpc'); // Call fetchDeviceDetails with the teamId
         });
-        
+
       function scrollDown() {
         var text = document.querySelector(".sec-1 .text");
         text.style.fontSize = "80px";
