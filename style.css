@@ -280,3 +280,10 @@ body {
     border-color: #007bff; 
     outline: none; 
   }
+
+  @media (max-width: 768px) {
+    .flex{
+        display: block;
+        flex-direction: column;
+    }
+  }
