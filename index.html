@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            rel="stylesheet">
+    </head>
+    <body class="bg-gray-100">
+        <h1 class="text-3xl text-center mt-8">Every electric device under your
+            control : )</h1>
+        <div class="mt-12" id="">
+            <div class="mt-4 rounded-md"><div
+                    class="flex space-x-3"><button
+                        id = "fan"
+                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg "
+                        style="border: 1px solid rgb(229, 229, 229); background-color: rgb(255, 255, 255);"><img
+                            src="https://cdn-icons-png.flaticon.com/128/3046/3046948.png"
+                            alt class="w-12"><span
+                            class="mt-4 text-sm">Fan</span></button><button
+                            id="bulb"
+                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
+                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
+                            src="https://cdn-icons-png.flaticon.com/128/2988/2988036.png"
+                            alt class="w-12"><span
+                            class="mt-4 text-sm">Bulb</span></button><button
+                            id="led"
+                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
+                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
+                            src="https://cdn-icons-png.flaticon.com/128/10069/10069326.png"
+                            alt class="w-12"><span
+                            class="mt-4 text-sm">Led</span></button><button
+                            id="ac"
+                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
+                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
+                            src="https://cdn-icons-png.flaticon.com/128/9214/9214397.png"
+                            alt class="w-12"><span
+                            class="mt-4 text-sm">A.C</span></button></div></div><div
+                class="p-6 bg-white mt-4 border border-neutral-200 rounded-lg"><div
+                    class="flex items-center"><span
+                        class="bg-yellow-200 text-red-500 px-4 py-2 font-semibold tracking-wider text-xs">POST</span><span
+                        class="text-sm ml-3 font-mono">/devices</span></div><table
+                        id = "deviceContent"
+                    class="mt-4 w-full"><thead class="text-left"><tr><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
+                        class="text-left"><tr><td
+                                class="font-normal px-5 py-3 text-sm">teamid</td><td
+                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
+                                class="font-normal px-5 py-3 text-sm">Your teams
+                                unique id</td></tr><tr><td
+                                class="font-normal px-5 py-3 text-sm">device</td><td
+                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
+                                class="font-normal px-5 py-3 text-sm">fan</td></tr><tr><td
+                                class="font-normal px-5 py-3 text-sm">value</td><td
+                                class="font-normal px-5 py-3 text-sm text-green-600">Integer</td><td
+                                class="font-normal px-5 py-3 text-sm">0 -
+                                5</td><td
+                                class="font-normal px-5 py-3 text-sm">Control
+                                the speed of the
+                                fan</td></tr></tbody></table></div><h2
+                class="font-semibold text-neutral-800 text-base mt-12">Get
+                updated device status</h2><div
+                class="p-6 bg-white mt-4 border border-neutral-200 rounded-lg"><div
+                    class="flex items-center"><span
+                        class="bg-green-400 text-black px-4 py-2 font-semibold tracking-wider text-xs">GET</span><span
+                        class="text-sm ml-3 font-mono">/devices/:id</span></div><table
+                    class="mt-4 w-full"><thead class="text-left"><tr><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
+                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
+                        class="text-left"><tr><td
+                                class="font-normal px-5 py-3 text-sm">id</td><td
+                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
+                                class="font-normal px-5 py-3 text-sm">Your teams
+                                unique id</td></tr></tbody></table></div></div>
+    <script src="script.js"></script>
+    </body>
+</html>
