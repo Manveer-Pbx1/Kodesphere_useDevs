@@ -1,84 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-            rel="stylesheet">
-    </head>
-    <body class="bg-gray-100">
-        <h1 class="text-3xl text-center mt-8">Every electric device under your
-            control : )</h1>
-        <div class="mt-12" id="">
-            <div class="mt-4 rounded-md"><div
-                    class="flex space-x-3"><button
-                        id = "fan"
-                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg "
-                        style="border: 1px solid rgb(229, 229, 229); background-color: rgb(255, 255, 255);"><img
-                            src="https://cdn-icons-png.flaticon.com/128/3046/3046948.png"
-                            alt class="w-12"><span
-                            class="mt-4 text-sm">Fan</span></button><button
-                            id="bulb"
-                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
-                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
-                            src="https://cdn-icons-png.flaticon.com/128/2988/2988036.png"
-                            alt class="w-12"><span
-                            class="mt-4 text-sm">Bulb</span></button><button
-                            id="led"
-                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
-                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
-                            src="https://cdn-icons-png.flaticon.com/128/10069/10069326.png"
-                            alt class="w-12"><span
-                            class="mt-4 text-sm">Led</span></button><button
-                            id="ac"
-                        class="h-fit py-4 w-28 flex flex-col items-center justify-center rounded-lg"
-                        style="border: 1px solid rgba(0, 0, 0, 0);"><img
-                            src="https://cdn-icons-png.flaticon.com/128/9214/9214397.png"
-                            alt class="w-12"><span
-                            class="mt-4 text-sm">A.C</span></button></div></div><div
-                class="p-6 bg-white mt-4 border border-neutral-200 rounded-lg"><div
-                    class="flex items-center"><span
-                        class="bg-yellow-200 text-red-500 px-4 py-2 font-semibold tracking-wider text-xs">POST</span><span
-                        class="text-sm ml-3 font-mono">/devices</span></div><table
-                        id = "deviceContent"
-                    class="mt-4 w-full"><thead class="text-left"><tr><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-                        class="text-left"><tr><td
-                                class="font-normal px-5 py-3 text-sm">teamid</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">Your teams
-                                unique id</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">device</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">fan</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">value</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">Integer</td><td
-                                class="font-normal px-5 py-3 text-sm">0 -
-                                5</td><td
-                                class="font-normal px-5 py-3 text-sm">Control
-                                the speed of the
-                                fan</td></tr></tbody></table></div><h2
-                class="font-semibold text-neutral-800 text-base mt-12">Get
-                updated device status</h2><div
-                class="p-6 bg-white mt-4 border border-neutral-200 rounded-lg"><div
-                    class="flex items-center"><span
-                        class="bg-green-400 text-black px-4 py-2 font-semibold tracking-wider text-xs">GET</span><span
-                        class="text-sm ml-3 font-mono">/devices/:id</span></div><table
-                    class="mt-4 w-full"><thead class="text-left"><tr><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-                        class="text-left"><tr><td
-                                class="font-normal px-5 py-3 text-sm">id</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">Your teams
-                                unique id</td></tr></tbody></table></div></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>KodeSphere</title>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid text-white">
+        <span class="navbar-brand text-white"><h5>KodeSphere <span style="color: red">x</span> useDevs</h5></span>
+        <button
+          class="navbar-toggler text-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon icon-color"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-white"
+          id="navbarSupportedContent"
+        >
+          <ul>
+            <li>
+                <button>dark</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="sec-1" id="sec-1">
+      <div class="text">
+        <h1 style="font-size: 60px; color: yellow; text-shadow: 2px 2px black;">Control Your Devices</h1>
+        <br>
+        <h3 style="font-size: 25px; ">From Right here</h3>
+        <br><br>
+        <button onclick="scrollDown()" id="button">
+          <i style="font-size: 30px" class="fa">&#xf103;</i>
+        </button>
+      </div>
+    </section>
+    <section class="sec-2">
+        <h1 style="text-align: center; font-size: 35px">
+          Control your devices : )
+        </h1>
+        <br />
+        <p style="text-align: center">
+          This page listens to the changes in the database and updates the UI in
+          real time.
+        </p>
+        <div class="flex">
+          <div class="flex-1">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/556/556878.png"
+              alt="Fan Icon"
+            />
+            <div class="text">
+              <b>Fan</b>
+              <p>Control speed of the fan</p>
+              <input type="number" maxvalue="5" placeholder="Enter fan Speed" id="fan-input"/>
+            </div>
+          </div>
+  
+          <div class="flex-2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/427/427735.png"
+              alt="Bulb Icon"
+            />
+            <div class="text">
+              <b>Bulb</b>
+              <p>Turn the Bulb on or off</p>
+              <span>OFF</span>
+              <input type="range" min="0" max="1" id="bulb-input" style="width: 60px;" />
+              <span>ON</span>
+            </div>
+          </div>
+  
+          <div class="flex-3">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/8534/8534359.png"
+              alt="LED Icon"
+            />
+            <div class="text">
+              <b>LED</b>
+              <p>Control the Color of the LED</p>
+              <input type="color" id="led-input" /><br/>
+            </div>
+          </div>
+  
+          <div class="flex-4">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/911/911409.png"
+              alt="AC Icon"
+            />
+            <div class="text" id="ac-input">
+              <b>AC</b>
+              <p>Control State and Temp of AC</p>
+              <span>OFF</span>
+              <input type="range" min="0" max="1" id="state" style="width: 60px;" />
+              <span>ON</span>
+              <input
+                type="number"
+                minvalue="16"
+                maxvalue="30"
+                placeholder="Enter the Temp"
+                id="temp"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="device-details-container">Check status <a href= "https://kdss.konnexions.dev/simulation/ufiBTpc" target="_blank" style="color:red">here</a></div>
+      <button id="fetch-device-details-button" onclick="fetchDeviceDetails('ufiBTpc')">
+        Device details:
+
+      </button>
+      <div id="device-details">
+
+      </div>
+      <footer>
+        <p class="flex justify-center items footer">&copy; Team @useDevs</p>
+      </footer>
+
+    <script>
+        function fetchDeviceDetails(teamId) {
+            fetch(`https://kodessphere-api.vercel.app/devices/${teamId}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Display device details in the DOM
+                const deviceDetailsDiv = document.getElementById("device-details");
+                deviceDetailsDiv.innerHTML = ""; // Clear previous content
+                const detailsParagraph = document.createElement("p");
+                detailsParagraph.textContent = JSON.stringify(data);
+                deviceDetailsDiv.appendChild(detailsParagraph);
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        // Attach event listener to the button
+        document.getElementById("fetch-device-details-button").addEventListener("click", function () {
+            fetchDeviceDetails('ufiBTpc'); // Call fetchDeviceDetails with the teamId
+        });
+        
+      function scrollDown() {
+        var text = document.querySelector(".sec-1 .text");
+        text.style.fontSize = "80px";
+        setTimeout(function () {
+          text.style.opacity = "0";
+        }, 1000);
+
+        setTimeout(function () {
+          document.querySelector(".sec-2").scrollIntoView({
+            behavior: "smooth",
+          });
+        }, 2000);
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY === 0) {
+            text.style.fontSize = "";
+            text.style.opacity = "1";
+          }
+        });
+      }
+      function changeImage() {
+        var image = document.getElementById("myImage");
+        if (isBulbOn) {
+          image.src = "IMG/bulb-off.png";
+          isBulbOn = false;
+        } else {
+          image.src = "IMG/bulb-on.png";
+          isBulbOn = true;
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-    </body>
+    
+  </body>
 </html>

@@ -1,139 +1,172 @@
-const bulb = document.getElementById('bulb');
-const fan = document.getElementById('fan');
-const led = document.getElementById('led');
-const ac = document.getElementById('ac');
-const deviceContent =  document.getElementById('deviceContent');
-bulb.addEventListener('click', () => { 
-bulb.style.border = '1px solid rgb(229,229,299)';
-bulb.style.backgroundColor = 'white';
-fan.style.border = '0px';
-fan.style.backgroundColor = 'transparent';
-led.style.backgroundColor = '';
-led.style.border = 'none';
-ac.style.backgroundColor = 'none';
-ac.style.border = 'none';
-deviceContent.innerHTML = `
-<table
-id = "deviceContent"
-class="mt-4 w-full"><thead class="text-left"><tr><th
-        class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-        class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-        class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-        class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-class="text-left"><tr><td
-        class="font-normal px-5 py-3 text-sm">teamid</td><td
-        class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-        class="font-normal px-5 py-3 text-sm">Your teams
-        unique id</td></tr><tr><td
-        class="font-normal px-5 py-3 text-sm">device</td><td
-        class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-        class="font-normal px-5 py-3 text-sm">bulb</td></tr><tr><td
-        class="font-normal px-5 py-3 text-sm">value</td><td
-        class="font-normal px-5 py-3 text-sm text-green-600">Integer</td><td
-        class="font-normal px-5 py-3 text-sm">0 -
-        1</td><td
-        class="font-normal px-5 py-3 text-sm">Turn the bulb on or off</td></tr></tbody></table>
-    
-`
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("fan-input").addEventListener("change", function () {
+        // Sample POST request to /devices endpoint
+        fetch("https://kodessphere-api.vercel.app/devices", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                teamid: "ufiBTpc",
+                device: "fan",
+                value: document.getElementById("fan-input").value
+                // You can add more data as required
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .then(alert("Data was successfully updated!"))
+        .catch(error => console.error("Error:", error));
+    });
+    document.getElementById("bulb-input").addEventListener("click", function () {
+// Sample POST request to /devices endpoint for controlling the bulb
+fetch("https://kodessphere-api.vercel.app/devices", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        teamid: "ufiBTpc",
+        device: "Bulb",
+        value: document.getElementById("bulb-input").value
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.then(alert("Data was successfully updated!"))
+.catch(error => console.error("Error:", error));
+});
+document.getElementById('fan-input').addEventListener('change', function(){
+fetch("https://kodessphere-api.vercel.app/devices", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        teamid: "ufiBTpc",
+        device: "fan",
+        value: document.getElementById('fan-input').value
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.then(alert("Data was successfully updated!"))
+.catch(error => console.error("Error:", error));
+
+})
+
+document.getElementById("bulb-input").addEventListener('change', function(){
+fetch("https://kodessphere-api.vercel.app/devices", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        teamid: "ufiBTpc",
+        device: "bulb",
+        value: document.getElementById('bulb-input').value
+    })
+}).then((res) => {
+    console.log(res);
+    return res.json();
+}).then((out) => {
+    console.log(out);
+})
+})
+
+document.getElementById("led-input").addEventListener("change", function () {
+// Sample POST request to /devices endpoint for controlling the bulb
+fetch("https://kodessphere-api.vercel.app/devices", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        teamid: "ufiBTpc",
+        device: "Led",
+        value: document.getElementById('led-input').value
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.then(alert("Data was successfully updated!"))
+.catch(error => console.error("Error:", error));
 });
 
-fan.addEventListener('click', () => {
-bulb.style.border = 'none';
-bulb.style.backgroundColor = 'transparent';
-fan.style.border = '1 px solid rgb(229,229,299)';
-fan.style.backgroundColor = 'white';
-led.style.backgroundColor = '';
-led.style.border = 'none';
-ac.style.backgroundColor = 'none';
-ac.style.border = 'none';
-    deviceContent.innerHTML = `
-    <table
-                        id = "deviceContent"
-                    class="mt-4 w-full"><thead class="text-left"><tr><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-                        class="text-left"><tr><td
-                                class="font-normal px-5 py-3 text-sm">teamid</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">Your teams
-                                unique id</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">device</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">fan</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">value</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">Integer</td><td
-                                class="font-normal px-5 py-3 text-sm">0 -
-                                5</td><td
-                                class="font-normal px-5 py-3 text-sm">Control
-                                the speed of the
-                                fan</td></tr></tbody></table>
-    `
+document.getElementById("ac-input").addEventListener("change", function () {
+    fetch("https://kodessphere-api.vercel.app/devices", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            teamid: "ufiBTpc",
+            device: "ac",
+            value: {"temp": document.getElementById('temp').value, "state": document.getElementById('state').value}
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));
+    alert("Data was updated")
+    });
+
+
+
+
+//GET REQUEST...ARGHHH
+function fetchDeviceDetails(teamId) {
+fetch(`https://kodessphere-api.vercel.app/devices/${teamId}`, {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    }
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Network response was not ok");
+    }
+    return response.json();
+})
+.then(data => {
+    console.log("Device details:", data);
+})
+.catch(error => console.error("Error:", error));
+}
+
+const teamId = "ufiBTpc";
+
+fetchDeviceDetails(teamId);
+
+document.getElementById("fetch-device-details-button").addEventListener("click", function () {
+fetchDeviceDetails(teamId);
 });
-led.addEventListener('click', () => {
-bulb.style.border = 'none';
-bulb.style.backgroundColor = 'transparent';
-fan.style.border = 'none';
-fan.style.backgroundColor = 'transparent';
-led.style.border = '1 px solid rgb(229,229,299)';
-led.style.backgroundColor = 'white';
-ac.style.backgroundColor = 'transparent';
-ac.style.border = 'none';
-    deviceContent.innerHTML = `
-    <table
-                        id = "deviceContent"
-                    class="mt-4 w-full"><thead class="text-left"><tr><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-                        class="text-left"><tr><td
-                                class="font-normal px-5 py-3 text-sm">teamid</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">Your teams
-                                unique id</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">device</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">led</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">value</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">#000000 - #ffffff</td><td
-                                class="font-normal px-5 py-3 text-sm">Control
-                                the brightness of the
-                                led</td></tr></tbody></table>
-    `
+
+
 });
-ac.addEventListener('click', () => {
-    bulb.style.border = 'none';
-    bulb.style.backgroundColor = 'transparent';
-    fan.style.border = 'none';
-    fan.style.backgroundColor = 'transparent';
-    led.style.backgroundColor = 'transparent';
-    led.style.border = 'none';
-    ac.style.backgroundColor = 'white';
-    ac.style.border = '1 px solid rgb(229,229,299)';
-    deviceContent.innerHTML = `
-    <table
-                        id = "deviceContent"
-                    class="mt-4 w-full"><thead class="text-left"><tr><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Parameters</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Type</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Value</th><th
-                                class="font-semibold text-neutral-600 px-5 py-4 text-sm">Description</th></tr></thead><tbody
-                        class="text-left"><tr><td
-                                class="font-normal px-5 py-3 text-sm">teamid</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">Your teams
-                                unique id</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">device</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">String</td><td
-                                class="font-normal px-5 py-3 text-sm">ac</td></tr><tr><td
-                                class="font-normal px-5 py-3 text-sm">value</td><td
-                                class="font-normal px-5 py-3 text-sm text-green-600">JSON</td><td
-                                class="font-normal px-5 py-3 text-sm">{ "temp": 25, "state": 0, }</td><td
-                                class="font-normal px-5 py-3 text-sm">Control
-                                the temperature of the
-                                ac</td></tr></tbody></table>
-    `
-});
+// function presentDeviceDetails(deviceDetails) {
+//         // Example: Presenting device details in a table
+//         const deviceDetailsContainer = document.getElementById("device-details-container");
+//         deviceDetailsContainer.innerHTML = `
+//             <h2>Device Details</h2>
+//             <table class="table">
+//                 <thead>
+//                     <tr>
+//                         <th>Device</th>
+//                         <th>Value</th>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
+//                     <tr>
+//                         <td>Fan</td>
+//                         <td>${deviceDetails.fan}</td>
+//                     </tr>
+//                     <tr>
+//                         <td>Bulb</td>
+//                         <td>${deviceDetails.bulb}</td>
+//                     </tr>
+
+//                 </tbody>
+//             </table>
+//         `;
+//     }
