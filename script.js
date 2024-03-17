@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("fan-input").addEventListener("change", function () {
-        // Sample POST request to /devices endpoint
+        
         fetch("https://kodessphere-api.vercel.app/devices", {
             method: "POST",
             headers: {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 teamid: "ufiBTpc",
                 device: "fan",
                 value: document.getElementById("fan-input").value
-                // You can add more data as required
+                
             })
         })
         .then(response => response.json())
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("Error:", error));
     });
     document.getElementById("bulb-input").addEventListener("click", function () {
-// Sample POST request to /devices endpoint for controlling the bulb
+
 fetch("https://kodessphere-api.vercel.app/devices", {
     method: "POST",
     headers: {
@@ -75,7 +75,7 @@ fetch("https://kodessphere-api.vercel.app/devices", {
 })
 
 document.getElementById("led-input").addEventListener("change", function () {
-// Sample POST request to /devices endpoint for controlling the bulb
+
 fetch("https://kodessphere-api.vercel.app/devices", {
     method: "POST",
     headers: {
@@ -145,7 +145,7 @@ fetchDeviceDetails(teamId);
 
 });
 // function presentDeviceDetails(deviceDetails) {
-//         // Example: Presenting device details in a table
+//         
 //         const deviceDetailsContainer = document.getElementById("device-details-container");
 //         deviceDetailsContainer.innerHTML = `
 //             <h2>Device Details</h2>
