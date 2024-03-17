@@ -158,8 +158,21 @@
             .then(data => {
                 const deviceDetailsDiv = document.getElementById("device-details");
                 deviceDetailsDiv.innerHTML = ""; 
-                const detailsParagraph = document.createElement("p");
-                detailsParagraph.textContent = JSON.stringify(data);
+                const detailsParagraph = document.createElement("div");
+                console.log(JSON.stringify(data));
+                detailsParagraph.innerHTML =  `
+                <ul>
+                    <li>Team ID: ${JSON.stringify(data.teamId)}</li>
+                    <li>Team Name: ${data.teamName}</li>
+                    <li>Device State: ${data.arena}</li>
+                    <li>Fan Speed: ${data.fan}</li>
+                    <li>Bulb State: ${data.bulb}</li>
+                    <li>Led Color: ${data.led}</li>
+                    <li>Ac State: ${data.ac.state}</li>
+                    <li>Ac State: ${data.ac.temp}</li>
+                    </ul>
+                `
+                
                 deviceDetailsDiv.appendChild(detailsParagraph);
             })
             .catch(error => console.error("Error:", error));
