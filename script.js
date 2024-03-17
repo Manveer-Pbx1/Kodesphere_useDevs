@@ -1,3 +1,12 @@
+const click = new Audio('click.mp3');
+const swoosh = new Audio('swoosh.mp3');
+function play(){
+    click.play();
+}
+function playSwoosh(){
+    swoosh.play();
+
+}
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("fan-input").addEventListener("change", function () {
         
@@ -56,6 +65,7 @@ fetch("https://kodessphere-api.vercel.app/devices", {
 })
 
 document.getElementById("bulb-input").addEventListener('change', function(){
+    play();
 fetch("https://kodessphere-api.vercel.app/devices", {
     method: "POST",
     headers: {
@@ -75,7 +85,7 @@ fetch("https://kodessphere-api.vercel.app/devices", {
 })
 
 document.getElementById("led-input").addEventListener("change", function () {
-
+play();
 fetch("https://kodessphere-api.vercel.app/devices", {
     method: "POST",
     headers: {
@@ -94,6 +104,7 @@ fetch("https://kodessphere-api.vercel.app/devices", {
 });
 
 document.getElementById("ac-input").addEventListener("change", function () {
+    play();
     fetch("https://kodessphere-api.vercel.app/devices", {
         method: "POST",
         headers: {

@@ -45,9 +45,9 @@
     </nav>
     <section class="sec-1" id="sec-1">
       <div class="text">
-        <h1 style="font-size: 60px; color: yellow; text-shadow: 2px 2px black;">Control Your Devices</h1>
+        <em><h1 style="font-size: 60px;color: yellow; text-shadow: 2px 2px black; font-weight:800;">Control Your Devices</h1></em>
         <br>
-        <h3 style="font-size: 25px; ">From Right here</h3>
+        <h3 style="font-size: 25px; ">Check out how</h3>
         <br><br>
         <button onclick="scrollDown()" id="button">
           <i style="font-size: 30px" class="fa">&#xf103;</i>
@@ -55,7 +55,7 @@
       </div>
     </section>
     <section class="sec-2">
-        <h1 style="text-align: center; font-size: 35px">
+        <h1 style="text-align: center; font-size: 45px; font-weight: bold;">
           Control your devices : )
         </h1>
         <br />
@@ -65,26 +65,26 @@
         <div class="flex">
           <div class="flex-1">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/556/556878.png"
+              src="https://cdn-icons-png.flaticon.com/128/5507/5507832.png"
               alt="Fan Icon"
             />
             <div class="text">
               <b>Fan</b>
               <p>Control speed of the fan</p>
-              <input type="number" maxvalue="5" placeholder="Enter fan Speed" id="fan-input"/>
+              <input type="number" maxvalue="5" placeholder="Speed: 0-5" id="fan-input" style="position: relative; top: 25px;"/>
             </div>
           </div>
   
           <div class="flex-2">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/427/427735.png"
+              src="https://cdn-icons-png.flaticon.com/128/2988/2988036.png"
               alt="Bulb Icon"
             />
             <div class="text">
               <b>Bulb</b>
               <p>Turn the Bulb on or off</p>
               <span>OFF</span>
-              <input type="range" min="0" max="1" id="bulb-input" style="width: 60px;" />
+              <input type="range" min="0" max="1" id="bulb-input" style="width: 60px; position: relative; top: 20px;" />
               <span>ON</span>
             </div>
           </div>
@@ -97,27 +97,28 @@
             <div class="text">
               <b>LED</b>
               <p>Control the Color of the LED</p>
-              <input type="color" id="led-input" /><br/>
+              <input type="color" id="led-input" style="position: relative; top: 25px;" /><br/>
             </div>
           </div>
   
           <div class="flex-4">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/911/911409.png"
+              src="https://cdn-icons-png.flaticon.com/128/3949/3949552.png"
               alt="AC Icon"
             />
             <div class="text" id="ac-input">
               <b>AC</b>
               <p>Control State and Temp of AC</p>
               <span>OFF</span>
-              <input type="range" min="0" max="1" id="state" style="width: 60px;" />
+              <input type="range" min="0" max="1" id="state" style="width: 60px; position: relative; top: 18px;" />
               <span>ON</span>
               <input
                 type="number"
                 minvalue="16"
                 maxvalue="30"
-                placeholder="Enter the Temp"
+                placeholder="Temp: 16-30"
                 id="temp"
+                style="position: relative; top: 16px;"
               />
             </div>
           </div>
@@ -140,6 +141,7 @@
 
     <script>
         function fetchDeviceDetails(teamId) {
+            play();
             fetch(`https://kodessphere-api.vercel.app/devices/${teamId}`, {
                 method: "GET",
                 headers: {
@@ -169,11 +171,13 @@
       function scrollDown() {
         var text = document.querySelector(".sec-1 .text");
         text.style.fontSize = "80px";
+        playSwoosh();
         setTimeout(function () {
           text.style.opacity = "0";
         }, 1000);
 
         setTimeout(function () {
+            play();
           document.querySelector(".sec-2").scrollIntoView({
             behavior: "smooth",
           });
