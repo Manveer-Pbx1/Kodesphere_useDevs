@@ -124,15 +124,17 @@
           </div>
         </div>
       </section>
+      <br><br>
       <section style="text-align: center;">
       <div id="device-details-container">Check status <a href= "https://kdss.konnexions.dev/simulation/ufiBTpc" target="_blank" style="color:red">here</a></div>
       <p style="color: green; font-weight: 800 ;">OR</p>
-      <button style="background-color: red; border: 1px solid;" id="fetch-device-details-button" onclick="fetchDeviceDetails('ufiBTpc')">
+      <button style="background-color: red; border-radius: 55px; padding: 10px 20px; color: white; text-shadow: 1px 0px black; border: 1px solid;" id="fetch-device-details-button" onclick="fetchDeviceDetails('ufiBTpc')">
         Click to fetch device details </button>
       <div id="device-details">
 
       </div>
       </section>
+      <br><br>
       <footer>
         <p class="flex justify-center items footer">&copy; Team @useDevs</p>
       </footer>
@@ -152,9 +154,8 @@
                 return response.json();
             })
             .then(data => {
-                // Display device details in the DOM
                 const deviceDetailsDiv = document.getElementById("device-details");
-                deviceDetailsDiv.innerHTML = ""; // Clear previous content
+                deviceDetailsDiv.innerHTML = ""; 
                 const detailsParagraph = document.createElement("p");
                 detailsParagraph.textContent = JSON.stringify(data);
                 deviceDetailsDiv.appendChild(detailsParagraph);
